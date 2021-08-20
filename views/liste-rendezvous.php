@@ -31,7 +31,7 @@ foreach ($allRdv as $rdv) { ?>
                         <button type="submit" name="rdvInfo" value="ok" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
                     </form>
                     <form action="./liste-rendezvous.php" method="post" class="ms-3">
-                        <input type="hidden" name="id" value="<?= $rdv['id'] ?>">
+                        <input type="hidden" name="idApp" value="<?= $rdv['id'] ?>">
                         <button type="submit" name="deleteRdv" class="btn btn-primary"><i class="bi bi-x-square"></i></button>
                     </form>
                 </div>

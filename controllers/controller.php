@@ -43,28 +43,40 @@ if (isset($_GET['delete'])) {
 
 
 if (isset($_POST['submitRdv'])) {
-    $date = $_POST['datehour'];
-    $app->setRdv( $date, $_POST['idRdv']);
+    $date = $_POST['date'];
+    $hour = $_POST['hour'];
+    $fullDate = $date . ' ' . $hour;
+    $app->setRdv( $fullDate, $_POST['idRdv']);
+    $register = false;
+    $register = true;
 }
 
 $allRdv = $app->getRdv();
 
 if (isset($_POST['deleteRdv'])) {
-    $app->deleteRdv($_POST['id']);
+    $app->deleteRdv($_POST['idApp']);
     $allRdv = $app->getRdv();
+    $rdvByPatient = $app->getRdvByPatient($_POST['id']);
+    $patientInfo = $patients->getPatient($_POST['id']);
 }
 
 if (isset($_POST['rdvInfo'])) {
     $rdvInfo = $app->getRdvInfo($_POST['id']);
     $time = $rdvInfo['datehour'];
-    $time = str_replace(' ', 'T', $time);
+    $time = explode(' ', $time);
+    $date = $time[0];
+    $hour = $time[1];
 }
 
 if (isset($_POST['submitUpdateRdv'])) {
-    $app->updaterdv($_POST['id'], $_POST['datehour'], $_POST['idRdv']);
+    $date = $_POST['date'];
+    $hour = $_POST['hour'];
+    $fullDate = $date . ' ' . $hour;
+    $app->updaterdv($_POST['id'], $fullDate, $_POST['idRdv']);
     $rdvInfo = $app->getRdvInfo($_POST['id']);
     $time = $rdvInfo['datehour'];
-    $time = str_replace(' ', 'T', $time);
+    $date = $time[0];
+    $hour = $time[1];
     $update = false;
     $update = true;
 }

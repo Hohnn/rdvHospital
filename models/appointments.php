@@ -14,8 +14,8 @@ class Appointments extends database {
 
     public function getRdv (){
         $bdd = $this->connectDatabase();
-        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, `datehour` FROM appointments
-        inner join patients on patients.id = appointments.idPatients";
+        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, DATE_FORMAT(`datehour`, '%d/%m/%Y %h:%i') as datehour FROM appointments
+        inner join patients on patients.id = appointments.idPatients order by datehour";
         $result = $bdd->query($condition)->fetchAll();
         return $result;
     }
@@ -51,8 +51,8 @@ class Appointments extends database {
     }
 
     public function getRdvByPatient($idPatient){
-        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, `datehour` FROM appointments
-        inner join patients on patients.id = appointments.idPatients WHERE appointments.idPatients = ?";
+        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, DATE_FORMAT(`datehour`, '%d/%m/%Y %h:%i') as datehour FROM appointments
+        inner join patients on patients.id = appointments.idPatients WHERE appointments.idPatients = ? order by datehour";
         $bdd = $this->connectDatabase();
         $result = $bdd->prepare($condition);
         $result->bindValue(1, $idPatient, PDO::PARAM_INT);
@@ -60,4 +60,6 @@ class Appointments extends database {
         $fetch = $result->fetchAll();
         return $fetch;
     }
+
+
 }

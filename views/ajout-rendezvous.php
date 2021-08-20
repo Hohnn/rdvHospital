@@ -16,13 +16,6 @@ require '../controllers/liste-controller.php';
     <div class="container">
         <form class="row g-3 needs-validation myForm"  action="" method="post" novalidate>
             <div class="col-12">
-                <label for="datehour" class="form-label">Date heure</label>
-                <input type="datetime-local" class="form-control" id="datehour" name="datehour" required>
-                <div class="valid-feedback">
-                Looks good!
-                </div>
-            </div>
-            <div class="col-12">
                 <label for="date" class="form-label">Date</label>
                 <input type="date" class="form-control" id="date" name="date" required>
                 <div class="valid-feedback">
@@ -30,8 +23,14 @@ require '../controllers/liste-controller.php';
                 </div>
             </div>
             <div class="col-12">
-                <label for="hour" class="form-label">Date heure</label>
-                <input type="time" class="form-control" id="hour" name="hour" required>
+                <label for="hour" class="form-label">Heure</label>
+                <select class="form-select" aria-label="Default select example" name="hour">
+                    <option selected>Open this select menu</option>
+<?php  for ($i=8; $i < 18; $i++) { 
+    if ($i < 12 || $i > 13) {  ?>
+                    <option value="<?= $i ?>"><?= $i ?>:00</option>
+<?php }} ?>
+                </select>                
                 <div class="valid-feedback">
                 Looks good!
                 </div>
@@ -59,15 +58,14 @@ require '../controllers/liste-controller.php';
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Merci</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Rendez-vous</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Votre inscrition a bien été prise en compte.
+            Votre rendez-vous a bien été prise en compte.
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         </div>
         </div>
     </div>

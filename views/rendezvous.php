@@ -31,8 +31,21 @@ if (empty($_POST)) {
                 </select>
             </div>
             <div class="col-12">
-                <label for="datehour" class="form-label">Date et heure</label>
-                <input type="datetime-local" class="form-control" id="datehour" name="datehour" value="<?= $time ?>" required disabled>
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date" value="<?= $date ?>" required disabled>
+                <div class="valid-feedback">
+                Looks good!
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="hour" class="form-label">Heure</label>
+                <select class="form-select" aria-label="Default select example" name="hour" required disabled>
+                    <option selected hidden><?= $hour ?></option>
+<?php  for ($i=8; $i < 18; $i++) { 
+    if ($i >=  8 || $i <= 17) {  ?>
+                    <option value="<?= $i ?>" <?= $i == 12 ? 'disabled' : '' ?>><?= $i ?> : 00</option>
+<?php }} ?>
+                </select>                
                 <div class="valid-feedback">
                 Looks good!
                 </div>
