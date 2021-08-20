@@ -1,0 +1,43 @@
+.myForm {
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.432);
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(243, 243, 243);
+    margin-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+/* Liste */
+.myCard {
+    padding: 1rem 1.5rem;
+    width: 100vw;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.myCard span {
+    width: 100%;
+    min-width: max-content;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.wrapBtn {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    width: 100vw;
+    margin: 0 auto;
+}
+
