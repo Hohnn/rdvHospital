@@ -1,6 +1,5 @@
 <?php
 require '../controllers/controller.php';
-require '../controllers/liste-controller.php';
 
 if (empty($_POST)) {
     header('Location: ../index.php');
@@ -67,8 +66,8 @@ if (empty($_POST)) {
             <div class="col-12">
                 <button class="btn btn-primary d-none" id="submit" type="submit" name="submitProfil">Confirmer</button>
             </div>
-            <div class="col-12">
-                <a href="../index.php" class="btn btn-primary" >Accueil</a>
+            <div class="col-12 d-flex justify-content-between">
+                <a href="../index.php" class="btn btn-outline-dark" >Accueil</a>
                 <a href="./liste-patients.php" class="btn btn-primary" >Liste</a>
             </div>
         </form>

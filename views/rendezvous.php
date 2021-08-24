@@ -1,6 +1,5 @@
 <?php
 require '../controllers/controller.php';
-require '../controllers/liste-controller.php';
 if (empty($_POST)) {
     header('Location: ../index.php');
 }

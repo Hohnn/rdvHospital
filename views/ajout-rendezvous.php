@@ -1,6 +1,5 @@
 <?php
 require '../controllers/controller.php';
-require '../controllers/liste-controller.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +61,7 @@ require '../controllers/liste-controller.php';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Votre rendez-vous a bien été prise en compte.
+            <?= $dateMessage ?? '' ?>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

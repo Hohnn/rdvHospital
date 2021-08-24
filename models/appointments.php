@@ -14,7 +14,7 @@ class Appointments extends database {
 
     public function getRdv (){
         $bdd = $this->connectDatabase();
-        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, DATE_FORMAT(`datehour`, '%d/%m/%Y %h:%i') as datehour FROM appointments
+        $condition = "SELECT  `appointments`.`id`, `idPatients`, `firstname`, `lastname`, DATE_FORMAT(`datehour`, '%d/%m/%Y %H:%i') as datehour FROM appointments
         inner join patients on patients.id = appointments.idPatients order by datehour";
         $result = $bdd->query($condition)->fetchAll();
         return $result;
@@ -59,6 +59,26 @@ class Appointments extends database {
         $result->execute();
         $fetch = $result->fetchAll();
         return $fetch;
+    }
+
+    public function checkSameRdv($datehour){
+        $condition = "SELECT * FROM appointments
+        where dateHour = ' ? '";
+        $bdd = $this->connectDatabase();
+        $result = $bdd->prepare($condition);
+        $result->bindValue(1, $datehour, PDO::PARAM_STR);
+        $result->execute();
+        $fetch = $result->fetch(); /* pas fetchAll pour pas avoir 2 array */
+        return $fetch;
+    }
+
+
+    public function deletePatientRdv($idPatient){
+        $condition = "DELETE FROM appointments WHERE idPatients = ? ";
+        $bdd = $this->connectDatabase();
+        $result = $bdd->prepare($condition);
+        $result->bindValue(1, $idPatient, PDO::PARAM_INT);
+        $result->execute();
     }
 
 

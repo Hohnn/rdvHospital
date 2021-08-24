@@ -57,4 +57,32 @@ class Patients extends database {
         $bdd = $this->connectDatabase();
         $bdd->query($condition);
     }
+
+    public function searchPatient($value){
+        $condition = "SELECT * FROM patients WHERE firstname LIKE  ? OR lastname LIKE ?";
+        $bdd = $this->connectDatabase();
+        $result = $bdd->prepare($condition);
+        $result->bindValue(1,'%' . $value . '%', PDO::PARAM_STR);
+        $result->bindValue(2, '%' . $value . '%', PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetchAll();
+    }
+
+    public function getPagination($page, $limit){
+        $bdd = $this->connectDatabase();
+        $sql = 'SELECT * FROM `patients` ORDER BY `id` DESC LIMIT ? , ? ;';
+        $query = $bdd->prepare($sql);
+        $query->bindValue(1, $page, PDO::PARAM_INT);
+        $query->bindValue(2, $limit, PDO::PARAM_INT);
+        $query->execute();
+        $articles = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $articles;
+    }
+
+    public function getPatientNumber(){
+        $condition = "SELECT COUNT(*) as nb_patients FROM patients";
+        $bdd = $this->connectDatabase();
+        $result = $bdd->query($condition)->fetch();
+        return $result['nb_patients'];
+    }
 }

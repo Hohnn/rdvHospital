@@ -9,6 +9,7 @@ require '../controllers/controller.php'
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>RDV</title>
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
@@ -54,11 +55,11 @@ require '../controllers/controller.php'
                 </div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit" name="submit">Envoyé</button>
+                <button class="btn btn-grad w-100 m-0" type="submit" name="submit">Envoyé</button>
             </div>
-            <div class="col-12 d-flex justify-content-between">
-                <a href="../index.php" class="btn btn-outline-dark" >Accueil</a>
-                <a href="./liste-patients.php" class="btn btn-primary" >Liste</a>
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <a href="../index.php" class="btn btn-grad2 m-0" >Accueil</a>
+                <a href="./liste-patients.php" class="btn-grad2" ><i class="bi bi-list-ul"></i></a>
             </div>
         </form>
     </div>

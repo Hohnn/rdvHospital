@@ -1,6 +1,6 @@
 .myForm {
     max-width: 500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.432);
+    box-shadow: 0 0 15px rgba(38, 38, 61, 0.418);
     padding: 2rem;
     border-radius: 1rem;
     background-color: rgb(243, 243, 243);
@@ -9,10 +9,10 @@
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
-    min-height: 100vh;
     align-items: center;
+    min-height: 100vh;
 }
 
 /* Liste */
@@ -36,8 +36,74 @@ h1 {
 .wrapBtn {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 500px;
     width: 100vw;
+    margin: 0 auto;
+}
+
+body {
+    position: relative;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(20deg, #FFDEE9 0%, #B5FFFC 100%);
+
+}
+
+nav {
+    display: flex;
+}
+
+nav a:first-child {
+    width: 100%;
+}
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.btn-grad2 {background-image: linear-gradient(to right, #485563 0%, #29323c  51%, #485563  100%)}
+.btn-grad2 {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad2:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.search {
+    max-width: 300px;
     margin: 0 auto;
 }
 

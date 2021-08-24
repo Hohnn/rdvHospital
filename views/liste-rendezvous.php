@@ -1,6 +1,5 @@
 <?php
 require '../controllers/controller.php';
-require '../controllers/liste-controller.php';
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ require '../controllers/liste-controller.php';
 
 foreach ($allRdv as $rdv) { ?>
             <div class="col-12">
-                <div class="card d-flex flex-row myCard">
+                <div class="card d-flex flex-row myCard align-items-center">
                     <span><i class="bi bi-person-fill"></i> <?= $rdv['lastname'] ?> <?= $rdv['firstname'] ?></span>
                     <span><i class="bi bi-clock"></i> <?= $rdv['datehour'] ?></span>
                     <form action="./rendezvous.php" method="post">
