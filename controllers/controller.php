@@ -37,7 +37,7 @@ if (isset($_POST['submitProfil'])) {
 }
 
 if (isset($_GET['delete'])) {
-    $app->deletePatientRdv($_GET['id']);
+    /* $app->deletePatientRdv($_GET['id']); */ //remplacé par cascade dans phpmyadmin
     $patients->deletePatient($_GET['id']);
     header('Location: ./liste-patients.php');
 }
@@ -97,7 +97,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 }else{
     $currentPage = 1;
 }
-$perPage = 1;
+$perPage = 5;
 
 $nbPatients = $patients->getPatientNumber();
 
@@ -106,4 +106,25 @@ $premierPatient = ($currentPage * $perPage) - $perPage;
 
 $getPatients = $patients->getPagination($premierPatient, $perPage);
 
+$minDate = date('Y-m-d');
 
+if (isset($_POST['submitAll'])) {
+    $lastName = $_POST['lastName'];
+    $firstName = $_POST['firstName'];
+    $email = $_POST['mail'];
+    $phone = $_POST['phone'];
+    $birthDate = $_POST['birthDate'];
+    $patients->setPatient($lastName, $firstName, $birthDate, $phone, $email );
+    $patientId = $patients->getPatientIdByLastname($lastName, $firstName)['id'];
+    $date = $_POST['date'];
+    $hour = $_POST['hour'];
+    $fullDate = $date . ' ' . $hour;
+    if (!$app->checkSameRdv($fullDate)) {
+        $app->setRdv( $fullDate, $patientId);
+        $dateMessage = 'Votre rendez-vous a bien été pris en compte le ' . $date . ' à ' . $hour . ' heure pour ' . $lastName . ' ' . $firstName;
+    } else {
+        $dateMessage = "Cette date est déjà prise, veuillez changer l'heure ou la date";
+    }
+    $register = false;
+    $register = true;
+}

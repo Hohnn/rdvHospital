@@ -19,6 +19,7 @@ if (empty($_POST)) {
 </head>
 <body>
     <div class="container">
+        <h1 class="text-center text-uppercase mt-3">Information Patient</h1>
         <form class="row g-3 needs-validation myForm"  action="./profil-patient.php" method="post" novalidate>
             <input type="hidden" name="id" value="<?= $patientInfo['id'] ?>">
             <div class="col-12">
@@ -60,15 +61,15 @@ if (empty($_POST)) {
                 </div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary w-100" type="button" id="edit">modifier</button>
+                <button class="btn btn-grad m-0 w-100" type="button" id="edit">modifier</button>
             </div>
 
             <div class="col-12">
-                <button class="btn btn-primary d-none" id="submit" type="submit" name="submitProfil">Confirmer</button>
+                <button class="btn btn-grad m-0 d-none" id="submit" type="submit" name="submitProfil">Confirmer</button>
             </div>
             <div class="col-12 d-flex justify-content-between">
-                <a href="../index.php" class="btn btn-outline-dark" >Accueil</a>
-                <a href="./liste-patients.php" class="btn btn-primary" >Liste</a>
+                <a href="../index.php" class="btn btn-grad2 m-0" >Accueil</a>
+                <a href="./liste-patients.php" class="btn btn-grad2 m-0" >Liste</a>
             </div>
         </form>
         <h1>Liste des rendez-vous</h1>
@@ -87,7 +88,7 @@ foreach ($rdvByPatient as $rdv) { ?>
                     <form action="./profil-patient.php" method="post" class="ms-3">
                         <input type="hidden" name="id" value="<?= $_POST['id'] ?>">
                         <input type="hidden" name="idApp" value="<?= $rdv['id'] ?>">
-                        <button type="submit" name="deleteRdv" class="btn btn-primary"><i class="bi bi-x-square"></i></button>
+                        <button type="submit" name="deleteRdv" class="btn btn-secondary"><i class="bi bi-x-square"></i></button>
                     </form>
                 </div>
             </div>

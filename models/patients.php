@@ -85,4 +85,14 @@ class Patients extends database {
         $result = $bdd->query($condition)->fetch();
         return $result['nb_patients'];
     }
+
+    public function getPatientIdByLastname($lastname, $firstname){
+        $condition = "SELECT id FROM patients WHERE lastname = ? AND firstname = ?";
+        $bdd = $this->connectDatabase();
+        $result = $bdd->prepare($condition);
+        $result->bindValue(1, $lastname, PDO::PARAM_STR);
+        $result->bindValue(2, $firstname, PDO::PARAM_STR);
+        $result->execute();
+        return $result->fetch();
+    }
 }

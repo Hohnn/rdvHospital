@@ -22,16 +22,11 @@
                     <a href="./views/ajout-rendezvous.php" class="btn-grad">Créer un rendez-vous</a>
                     <a href="./views/liste-rendezvous.php" class="btn-grad2"><i class="bi bi-list-ul"></i></a>
                 </nav>
+                <nav>
+                    <a href="./views/ajout-patients-rendez-vous.php" class="btn-grad">Créer un profil et un rendez vous</a>
+                </nav>
             </div>
         </div>
-<!--         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="./views/ajout-patient.php" class="btn btn-primary">Créer profil</a>
-            <a href="./views/liste-patients.php" class="btn btn-warning">LISTE</a>
-        </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="./views/ajout-rendezvous.php" class="btn btn-primary">RDV</a>
-            <a href="./views/liste-rendezvous.php" class="btn btn-warning">LISTE</a>
-        </div> -->
     </div>
     
 </body>

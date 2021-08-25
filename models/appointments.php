@@ -7,7 +7,7 @@ class Appointments extends database {
         VALUES (?, ?)";
         $result = $bdd->prepare($condition);
         $result->bindValue(1, $datehour, PDO::PARAM_STR);
-        $result->bindValue(2, $idPatient, PDO::PARAM_STR);
+        $result->bindValue(2, $idPatient, PDO::PARAM_INT);
         $result->execute();
         return $result;
     }

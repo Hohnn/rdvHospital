@@ -18,7 +18,7 @@ require '../controllers/controller.php';
         <h1>Liste des patients</h1>
         <div class="row g-3 mb-4">
         <form class="input-group my-3 search" action="" method="POST">
-            <input type="search" class="form-control" name="search" value="<?= $_POST['search'] ?? '' ?>" placeholder="Chercher...">
+            <input type="search" class="form-control" name="search" value="<?= $_POST['search'] ?? '' ?>" placeholder="Nom ou prénom...">
             <button class="btn btn-primary" type="submit" name="searchSubmit" id="button-addon2"><i class="bi bi-search"></i></button>
         </form>
 <?php 
@@ -55,7 +55,7 @@ foreach ($getPatients as $patient) { ?>
                     </form>
                     <form action="" method="get" class="ms-3">
                         <input type="hidden" name="id" value="<?= $patient['id'] ?>">
-                        <button type="submit" name="delete" value="ok" class="btn btn-primary"><i class="bi bi-x-square"></i></button>
+                        <button type="submit" name="delete" value="ok" class="btn btn-secondary"><i class="bi bi-x-square"></i></button>
                     </form>
                 </div>
             </div>
